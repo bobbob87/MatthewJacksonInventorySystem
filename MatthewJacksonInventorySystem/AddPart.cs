@@ -41,7 +41,7 @@ namespace MatthewJacksonInventorySystem
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             inventoryForm inventoryForm = new();
             inventoryForm.Show();
         }

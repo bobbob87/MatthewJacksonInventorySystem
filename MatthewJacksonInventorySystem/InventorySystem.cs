@@ -99,5 +99,10 @@ namespace MatthewJacksonInventorySystem
         {
 
         }
+
+        private void productDeleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

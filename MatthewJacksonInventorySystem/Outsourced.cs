@@ -8,5 +8,6 @@ namespace MatthewJacksonInventorySystem
 {
     class Outsourced : Part
     {
+         public string CompanyName { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace MatthewJacksonInventorySystem
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inventoryForm));
             this.productsGroupBox = new System.Windows.Forms.GroupBox();
-            this.productsDeleteButton = new System.Windows.Forms.Button();
+            this.productDeleteButton = new System.Windows.Forms.Button();
             this.productsModifyButton = new System.Windows.Forms.Button();
             this.productsAddButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -51,10 +51,10 @@ namespace MatthewJacksonInventorySystem
             this.mainScreenLabel = new System.Windows.Forms.Label();
             this.partsLabel = new System.Windows.Forms.Label();
             this.productsLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.partSearchGroupBox = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.partsSearchButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.productSearchgroupBox = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.productsSearchButton = new System.Windows.Forms.Button();
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
@@ -65,15 +65,15 @@ namespace MatthewJacksonInventorySystem
             this.productsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).BeginInit();
             this.partsGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.partSearchGroupBox.SuspendLayout();
+            this.productSearchgroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // productsGroupBox
             // 
             this.productsGroupBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.productsGroupBox.Controls.Add(this.productsDeleteButton);
+            this.productsGroupBox.Controls.Add(this.productDeleteButton);
             this.productsGroupBox.Controls.Add(this.productsModifyButton);
             this.productsGroupBox.Controls.Add(this.productsAddButton);
             this.productsGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,21 +83,20 @@ namespace MatthewJacksonInventorySystem
             this.productsGroupBox.TabIndex = 0;
             this.productsGroupBox.TabStop = false;
             // 
-            // productsDeleteButton
+            // productDeleteButton
             // 
-            this.productsDeleteButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productsDeleteButton.Location = new System.Drawing.Point(146, 22);
-            this.productsDeleteButton.Name = "productsDeleteButton";
-            this.productsDeleteButton.Size = new System.Drawing.Size(64, 36);
-            this.productsDeleteButton.TabIndex = 2;
-            this.productsDeleteButton.Text = "Delete";
-            this.productsDeleteButton.UseVisualStyleBackColor = true;
-            this.productsDeleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.productDeleteButton.Location = new System.Drawing.Point(144, 21);
+            this.productDeleteButton.Name = "productDeleteButton";
+            this.productDeleteButton.Size = new System.Drawing.Size(64, 36);
+            this.productDeleteButton.TabIndex = 2;
+            this.productDeleteButton.Text = "Delete";
+            this.productDeleteButton.UseVisualStyleBackColor = true;
+            this.productDeleteButton.Click += new System.EventHandler(this.productDeleteButton_Click);
             // 
             // productsModifyButton
             // 
             this.productsModifyButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productsModifyButton.Location = new System.Drawing.Point(76, 22);
+            this.productsModifyButton.Location = new System.Drawing.Point(75, 21);
             this.productsModifyButton.Name = "productsModifyButton";
             this.productsModifyButton.Size = new System.Drawing.Size(64, 36);
             this.productsModifyButton.TabIndex = 1;
@@ -172,7 +171,7 @@ namespace MatthewJacksonInventorySystem
             this.partsGroupBox.Controls.Add(this.partsDeleteButton);
             this.partsGroupBox.Controls.Add(this.partsModifyButton);
             this.partsGroupBox.Controls.Add(this.partsAddButton);
-            this.partsGroupBox.Location = new System.Drawing.Point(270, 369);
+            this.partsGroupBox.Location = new System.Drawing.Point(265, 369);
             this.partsGroupBox.Name = "partsGroupBox";
             this.partsGroupBox.Size = new System.Drawing.Size(229, 75);
             this.partsGroupBox.TabIndex = 8;
@@ -241,15 +240,15 @@ namespace MatthewJacksonInventorySystem
             this.productsLabel.TabIndex = 11;
             this.productsLabel.Text = "Products";
             // 
-            // groupBox1
+            // partSearchGroupBox
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.partsSearchButton);
-            this.groupBox1.Location = new System.Drawing.Point(208, 61);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(291, 34);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
+            this.partSearchGroupBox.Controls.Add(this.textBox1);
+            this.partSearchGroupBox.Controls.Add(this.partsSearchButton);
+            this.partSearchGroupBox.Location = new System.Drawing.Point(208, 61);
+            this.partSearchGroupBox.Name = "partSearchGroupBox";
+            this.partSearchGroupBox.Size = new System.Drawing.Size(291, 34);
+            this.partSearchGroupBox.TabIndex = 6;
+            this.partSearchGroupBox.TabStop = false;
             // 
             // textBox1
             // 
@@ -268,15 +267,15 @@ namespace MatthewJacksonInventorySystem
             this.partsSearchButton.UseVisualStyleBackColor = true;
             this.partsSearchButton.Click += new System.EventHandler(this.partsSearchButton_Click);
             // 
-            // groupBox2
+            // productSearchgroupBox
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.productsSearchButton);
-            this.groupBox2.Location = new System.Drawing.Point(796, 61);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(291, 34);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
+            this.productSearchgroupBox.Controls.Add(this.textBox2);
+            this.productSearchgroupBox.Controls.Add(this.productsSearchButton);
+            this.productSearchgroupBox.Location = new System.Drawing.Point(796, 61);
+            this.productSearchgroupBox.Name = "productSearchgroupBox";
+            this.productSearchgroupBox.Size = new System.Drawing.Size(291, 34);
+            this.productSearchgroupBox.TabIndex = 7;
+            this.productSearchgroupBox.TabStop = false;
             // 
             // textBox2
             // 
@@ -340,8 +339,8 @@ namespace MatthewJacksonInventorySystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 509);
             this.Controls.Add(this.productsDataGridView);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.productSearchgroupBox);
+            this.Controls.Add(this.partSearchGroupBox);
             this.Controls.Add(this.productsLabel);
             this.Controls.Add(this.partsLabel);
             this.Controls.Add(this.mainScreenLabel);
@@ -352,14 +351,13 @@ namespace MatthewJacksonInventorySystem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "inventoryForm";
             this.Text = "Main Screen";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.productsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).EndInit();
             this.partsGroupBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.partSearchGroupBox.ResumeLayout(false);
+            this.partSearchGroupBox.PerformLayout();
+            this.productSearchgroupBox.ResumeLayout(false);
+            this.productSearchgroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -370,7 +368,6 @@ namespace MatthewJacksonInventorySystem
 
         private System.Windows.Forms.GroupBox productsGroupBox;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button productsDeleteButton;
         private System.Windows.Forms.Button productsModifyButton;
         private System.Windows.Forms.Button productsAddButton;
         private System.Windows.Forms.DataGridView partsDataGridView;
@@ -385,10 +382,10 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.Label mainScreenLabel;
         private System.Windows.Forms.Label partsLabel;
         private System.Windows.Forms.Label productsLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox partSearchGroupBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button parts;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox productSearchgroupBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button productsSearchButton;
         private System.Windows.Forms.Button partsSea;
@@ -398,6 +395,8 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button productDel;
+        private System.Windows.Forms.Button productDeleteButton;
     }
 }
 

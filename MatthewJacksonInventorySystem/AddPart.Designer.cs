@@ -66,7 +66,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.radioFlowLayoutPanel.Controls.Add(this.inHouseRadioButton);
             this.radioFlowLayoutPanel.Controls.Add(this.outsourcedRadioButton);
-            this.radioFlowLayoutPanel.Location = new System.Drawing.Point(180, 15);
+            this.radioFlowLayoutPanel.Location = new System.Drawing.Point(241, 15);
             this.radioFlowLayoutPanel.Name = "radioFlowLayoutPanel";
             this.radioFlowLayoutPanel.Size = new System.Drawing.Size(177, 30);
             this.radioFlowLayoutPanel.TabIndex = 1;
@@ -99,7 +99,7 @@ namespace MatthewJacksonInventorySystem
             // inOrOutLabel
             // 
             this.inOrOutLabel.AutoSize = true;
-            this.inOrOutLabel.Location = new System.Drawing.Point(168, 345);
+            this.inOrOutLabel.Location = new System.Drawing.Point(168, 344);
             this.inOrOutLabel.Name = "inOrOutLabel";
             this.inOrOutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.inOrOutLabel.Size = new System.Drawing.Size(67, 15);
@@ -158,7 +158,7 @@ namespace MatthewJacksonInventorySystem
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(196, 293);
+            this.maxLabel.Location = new System.Drawing.Point(205, 293);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(30, 15);
             this.maxLabel.TabIndex = 8;
@@ -166,7 +166,7 @@ namespace MatthewJacksonInventorySystem
             // 
             // maxTextBox
             // 
-            this.maxTextBox.Location = new System.Drawing.Point(263, 293);
+            this.maxTextBox.Location = new System.Drawing.Point(263, 290);
             this.maxTextBox.Name = "maxTextBox";
             this.maxTextBox.Size = new System.Drawing.Size(100, 23);
             this.maxTextBox.TabIndex = 9;
@@ -174,7 +174,7 @@ namespace MatthewJacksonInventorySystem
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(414, 300);
+            this.minLabel.Location = new System.Drawing.Point(384, 293);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(28, 15);
             this.minLabel.TabIndex = 10;
@@ -182,7 +182,7 @@ namespace MatthewJacksonInventorySystem
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(487, 292);
+            this.textBox2.Location = new System.Drawing.Point(430, 290);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 23);
             this.textBox2.TabIndex = 11;
@@ -212,6 +212,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.idTextBox.Location = new System.Drawing.Point(263, 85);
             this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
             this.idTextBox.Size = new System.Drawing.Size(155, 23);
             this.idTextBox.TabIndex = 15;
             // 
@@ -260,7 +261,6 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.radioFlowLayoutPanel);
             this.Name = "AddPart";
             this.Text = "Part";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.radioFlowLayoutPanel.ResumeLayout(false);
             this.radioFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

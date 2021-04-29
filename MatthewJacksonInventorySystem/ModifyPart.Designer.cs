@@ -112,7 +112,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.textBox1.Location = new System.Drawing.Point(263, 341);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 23);
+            this.textBox1.Size = new System.Drawing.Size(170, 23);
             this.textBox1.TabIndex = 3;
             // 
             // nameLabel
@@ -158,7 +158,7 @@ namespace MatthewJacksonInventorySystem
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(196, 293);
+            this.maxLabel.Location = new System.Drawing.Point(205, 292);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(30, 15);
             this.maxLabel.TabIndex = 8;
@@ -166,15 +166,15 @@ namespace MatthewJacksonInventorySystem
             // 
             // maxTextBox
             // 
-            this.maxTextBox.Location = new System.Drawing.Point(263, 293);
+            this.maxTextBox.Location = new System.Drawing.Point(263, 289);
             this.maxTextBox.Name = "maxTextBox";
-            this.maxTextBox.Size = new System.Drawing.Size(100, 23);
+            this.maxTextBox.Size = new System.Drawing.Size(56, 23);
             this.maxTextBox.TabIndex = 9;
             // 
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(414, 300);
+            this.minLabel.Location = new System.Drawing.Point(334, 292);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(28, 15);
             this.minLabel.TabIndex = 10;
@@ -182,30 +182,30 @@ namespace MatthewJacksonInventorySystem
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(487, 292);
+            this.textBox2.Location = new System.Drawing.Point(377, 289);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.Size = new System.Drawing.Size(56, 23);
             this.textBox2.TabIndex = 11;
             // 
             // priceTextBox
             // 
             this.priceTextBox.Location = new System.Drawing.Point(263, 241);
             this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(155, 23);
+            this.priceTextBox.Size = new System.Drawing.Size(170, 23);
             this.priceTextBox.TabIndex = 12;
             // 
             // InventoryTextBox
             // 
             this.InventoryTextBox.Location = new System.Drawing.Point(263, 189);
             this.InventoryTextBox.Name = "InventoryTextBox";
-            this.InventoryTextBox.Size = new System.Drawing.Size(155, 23);
+            this.InventoryTextBox.Size = new System.Drawing.Size(170, 23);
             this.InventoryTextBox.TabIndex = 13;
             // 
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(263, 137);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(155, 23);
+            this.nameTextBox.Size = new System.Drawing.Size(170, 23);
             this.nameTextBox.TabIndex = 14;
             // 
             // idTextBox
@@ -213,7 +213,7 @@ namespace MatthewJacksonInventorySystem
             this.idTextBox.Location = new System.Drawing.Point(263, 85);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(155, 23);
+            this.idTextBox.Size = new System.Drawing.Size(170, 23);
             this.idTextBox.TabIndex = 15;
             // 
             // saveButton
@@ -261,7 +261,6 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.radioFlowLayoutPanel);
             this.Name = "ModifyPart";
             this.Text = "Part";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.radioFlowLayoutPanel.ResumeLayout(false);
             this.radioFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

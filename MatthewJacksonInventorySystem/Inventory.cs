@@ -9,13 +9,40 @@ namespace MatthewJacksonInventorySystem
 {
     static class Inventory
     {
-        public static BindingList<Product> ProductBL = new BindingList<Product>();
-        // ProductBL.Add(new Product(1, "Pin", 27, 499:M));
-        public static BindingList<Product> Products { get; set; }
 
+        public static BindingList<Product> Products { get; set; }
+        public static BindingList<Part> AllParts { get; set; }
         public static void addProduct(Product product)
         {
           
+        }
+        public static bool removeProduct(int removeCount)
+        {
+     
+        }
+        public static Product lookupProduct(int lookupProductId)
+        {
+            
+        }
+        public static void updateProduct(int id, Product product)
+        {
+
+        }
+        public static void addpart(Part part)
+        {
+
+        }
+        public static bool deletePart(Part part)
+        {
+
+        }
+        public static Part lookupPart(int lookupPartId)
+        {
+
+        }
+        public static void updatePart(int id, Part part)
+        {
+
         }
     }
 }

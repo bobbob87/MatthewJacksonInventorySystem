@@ -18,7 +18,15 @@ namespace MatthewJacksonInventorySystem
         public int Max { get; set; }   
         public void addAssociatedpart(Part part)
         {
-            
+            // TODO: add part code
+        }
+        public bool removeAssociatedPart(Part part)
+        {
+            // TODO: remove part code and change return to a variable
+        }
+        public Part lookupAssociatedPart(Part part)
+        {
+            // TODO: lookup part code
         }
     }
 }

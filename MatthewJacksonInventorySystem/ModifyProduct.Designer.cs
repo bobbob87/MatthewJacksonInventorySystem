@@ -85,6 +85,7 @@ namespace MatthewJacksonInventorySystem
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchTextBox
             // 
@@ -169,6 +170,7 @@ namespace MatthewJacksonInventorySystem
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // deleteButton
             // 
@@ -178,6 +180,7 @@ namespace MatthewJacksonInventorySystem
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addButton
             // 
@@ -187,6 +190,7 @@ namespace MatthewJacksonInventorySystem
             this.addButton.TabIndex = 9;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // associatedPartsDatagridView
             // 
@@ -231,7 +235,7 @@ namespace MatthewJacksonInventorySystem
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(124, 201);
+            this.idLabel.Location = new System.Drawing.Point(163, 201);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(18, 15);
             this.idLabel.TabIndex = 11;
@@ -240,7 +244,7 @@ namespace MatthewJacksonInventorySystem
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(124, 255);
+            this.nameLabel.Location = new System.Drawing.Point(142, 255);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(39, 15);
             this.nameLabel.TabIndex = 12;
@@ -258,7 +262,7 @@ namespace MatthewJacksonInventorySystem
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(124, 363);
+            this.priceLabel.Location = new System.Drawing.Point(148, 363);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(33, 15);
             this.priceLabel.TabIndex = 14;
@@ -267,7 +271,7 @@ namespace MatthewJacksonInventorySystem
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(124, 417);
+            this.maxLabel.Location = new System.Drawing.Point(151, 415);
             this.maxLabel.Name = "maxLabel";
             this.maxLabel.Size = new System.Drawing.Size(30, 15);
             this.maxLabel.TabIndex = 15;
@@ -275,15 +279,15 @@ namespace MatthewJacksonInventorySystem
             // 
             // maxTextBox
             // 
-            this.maxTextBox.Location = new System.Drawing.Point(167, 412);
+            this.maxTextBox.Location = new System.Drawing.Point(208, 412);
             this.maxTextBox.Name = "maxTextBox";
-            this.maxTextBox.Size = new System.Drawing.Size(100, 23);
+            this.maxTextBox.Size = new System.Drawing.Size(67, 23);
             this.maxTextBox.TabIndex = 16;
             // 
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(288, 415);
+            this.minLabel.Location = new System.Drawing.Point(319, 415);
             this.minLabel.Name = "minLabel";
             this.minLabel.Size = new System.Drawing.Size(28, 15);
             this.minLabel.TabIndex = 17;
@@ -291,9 +295,9 @@ namespace MatthewJacksonInventorySystem
             // 
             // minTextBox
             // 
-            this.minTextBox.Location = new System.Drawing.Point(335, 412);
+            this.minTextBox.Location = new System.Drawing.Point(371, 412);
             this.minTextBox.Name = "minTextBox";
-            this.minTextBox.Size = new System.Drawing.Size(100, 23);
+            this.minTextBox.Size = new System.Drawing.Size(67, 23);
             this.minTextBox.TabIndex = 0;
             // 
             // priceTextBox
@@ -325,7 +329,7 @@ namespace MatthewJacksonInventorySystem
             this.idTextBox.Size = new System.Drawing.Size(227, 23);
             this.idTextBox.TabIndex = 21;
             // 
-            // modifyProduct
+            // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -351,9 +355,8 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.candidatePartsdataGridView);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.addProductLabel);
-            this.Name = "modifyProduct";
+            this.Name = "ModifyProduct";
             this.Text = "Product";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddProduct_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
