@@ -26,7 +26,7 @@ namespace MatthewJacksonInventorySystem
         }
         public static Part lookupAssociatedPart(Part part)
         {
-            return part;// TODO: lookup part code
+            return AssociatedParts[CurrentAssociatedPart];
         }
         public Product(int ID, string name, decimal price, int instock, int min, int max)
         {

@@ -145,7 +145,7 @@ namespace MatthewJacksonInventorySystem
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    Inventory.deletePart(Inventory.AllParts[Inventory.currentPart]);
+                    Inventory.deletePart(Inventory.AllParts[Part.currentPart]);
                 }
             }
         }
@@ -183,7 +183,7 @@ namespace MatthewJacksonInventorySystem
 
         private void partsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Inventory.currentPart = partsDataGridView.CurrentCell.RowIndex;
+            Part.currentPart = partsDataGridView.CurrentCell.RowIndex;
         }
 
         private void partsSearchTextBox_TextChanged(object sender, EventArgs e)

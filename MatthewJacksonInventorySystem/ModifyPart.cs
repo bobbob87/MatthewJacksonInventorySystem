@@ -8,6 +8,23 @@ namespace MatthewJacksonInventorySystem
         public ModifyPart()
         {
             InitializeComponent();
+            idTextBox.Text = Inventory.AllParts[Part.currentPart].PartID.ToString();
+            nameTextBox.Text = Inventory.AllParts[Part.currentPart].Name;
+            InventoryTextBox.Text = Inventory.AllParts[Part.currentPart].InStock.ToString();
+            priceTextBox.Text = Inventory.AllParts[Part.currentPart].Price.ToString();
+            minTextBox.Text = Inventory.AllParts[Part.currentPart].Min.ToString();
+            maxTextBox.Text = Inventory.AllParts[Part.currentPart].Max.ToString();
+
+            // ****NEED TO GET THIS WORKING!****
+            //if (Inventory.AllParts[Part.currentPart] is Outsourced)
+            //{
+            //    outsourcedRadioButton.Checked = true;
+            //    mOrCompanyTexBox.Text = Inventory.AllParts[Part.currentPart].
+            //}
+            //else
+            //{
+            //    inHouseRadioButton.Checked = true;
+            //}
         }
 
         private void inHouseRadioButton_CheckedChanged(object sender, EventArgs e)

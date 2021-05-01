@@ -5,7 +5,7 @@ namespace MatthewJacksonInventorySystem
     static class Inventory
     {
 
-        public static int currentPart { get; set; }
+
 
         public static BindingList<Product> Products = new BindingList<Product>();
         // public static BindingList<Product> Products { get; set; }
@@ -20,9 +20,9 @@ namespace MatthewJacksonInventorySystem
             Products.RemoveAt(index);
             return true;
         }
-        public static Product lookupProduct(int lookupProductId)
+        public static Product lookupProduct(int product)
         {
-            return Inventory.Products[1];
+            return Inventory.Products[product];
         }
         public static void updateProduct(int id, Product product)
         {
@@ -37,9 +37,9 @@ namespace MatthewJacksonInventorySystem
             AllParts.Remove(part);
             return true;
         }
-        public static Part lookupPart(int lookupPartId)
+        public static Part lookupPart(int part)
         {
-            return AllParts[lookupPartId];
+            return AllParts[part];
         }
         public static void updatePart(int id, Part part)
         {

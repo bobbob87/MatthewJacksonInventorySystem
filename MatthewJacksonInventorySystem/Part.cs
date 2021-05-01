@@ -2,6 +2,7 @@
 {
     abstract class Part
     {
+        public static int currentPart { get; set; }
         public int PartID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }

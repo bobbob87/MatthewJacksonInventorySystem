@@ -34,7 +34,7 @@ namespace MatthewJacksonInventorySystem
             this.inHouseRadioButton = new System.Windows.Forms.RadioButton();
             this.outsourcedRadioButton = new System.Windows.Forms.RadioButton();
             this.inOrOutLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mOrCompanyTexBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.inventoryLabel = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@ namespace MatthewJacksonInventorySystem
             this.maxLabel = new System.Windows.Forms.Label();
             this.maxTextBox = new System.Windows.Forms.TextBox();
             this.minLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.minTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -108,12 +108,12 @@ namespace MatthewJacksonInventorySystem
             this.inOrOutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.inOrOutLabel.Click += new System.EventHandler(this.inOrOutLabel_Click);
             // 
-            // textBox1
+            // mOrCompanyTexBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(263, 341);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 23);
-            this.textBox1.TabIndex = 3;
+            this.mOrCompanyTexBox.Location = new System.Drawing.Point(263, 341);
+            this.mOrCompanyTexBox.Name = "mOrCompanyTexBox";
+            this.mOrCompanyTexBox.Size = new System.Drawing.Size(170, 23);
+            this.mOrCompanyTexBox.TabIndex = 3;
             // 
             // nameLabel
             // 
@@ -180,12 +180,12 @@ namespace MatthewJacksonInventorySystem
             this.minLabel.TabIndex = 10;
             this.minLabel.Text = "Min";
             // 
-            // textBox2
+            // minTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(377, 289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(56, 23);
-            this.textBox2.TabIndex = 11;
+            this.minTextBox.Location = new System.Drawing.Point(377, 289);
+            this.minTextBox.Name = "minTextBox";
+            this.minTextBox.Size = new System.Drawing.Size(56, 23);
+            this.minTextBox.TabIndex = 11;
             // 
             // priceTextBox
             // 
@@ -247,7 +247,7 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.InventoryTextBox);
             this.Controls.Add(this.priceTextBox);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.minTextBox);
             this.Controls.Add(this.minLabel);
             this.Controls.Add(this.maxTextBox);
             this.Controls.Add(this.maxLabel);
@@ -255,7 +255,7 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.inventoryLabel);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.mOrCompanyTexBox);
             this.Controls.Add(this.inOrOutLabel);
             this.Controls.Add(this.addPartLabel);
             this.Controls.Add(this.radioFlowLayoutPanel);
@@ -275,7 +275,7 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.RadioButton inHouseRadioButton;
         private System.Windows.Forms.RadioButton outsourcedRadioButton;
         private System.Windows.Forms.Label inOrOutLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox mOrCompanyTexBox;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Label inventoryLabel;
@@ -283,7 +283,7 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.Label maxLabel;
         private System.Windows.Forms.TextBox maxTextBox;
         private System.Windows.Forms.Label minLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox minTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
