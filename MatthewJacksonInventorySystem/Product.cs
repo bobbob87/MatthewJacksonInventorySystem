@@ -1,32 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace MatthewJacksonInventorySystem
 {
     class Product
     {
-        public BindingList<Part> AssociatedParts { get; set; }
+        public static int currentProduct { get; set; }
+        public static int currentCandidatePart { get; set; }
+        public static int CurrentAssociatedPart { get; set; }
+        public static BindingList<Part> AssociatedParts = new BindingList<Part>();
+        //public BindingList<Part> AssociatedParts { get; set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }
         public int Min { get; set; }
-        public int Max { get; set; }   
-        public void addAssociatedpart(Part part)
+        public int Max { get; set; }
+        public static void AddAssociatedpart(Part part)
         {
-            // TODO: add part code
+            AssociatedParts.Add(part);
         }
-        public bool removeAssociatedPart(Part part)
+        public static bool RemoveAssociatedPart(Part part)
         {
-            // TODO: remove part code and change return to a variable
+            AssociatedParts.Remove(part);
+            return true;// TODO: remove part code and change return to a variable
         }
-        public Part lookupAssociatedPart(Part part)
+        public static Part lookupAssociatedPart(Part part)
         {
-            // TODO: lookup part code
+            return part;// TODO: lookup part code
+        }
+        public Product(int ID, string name, decimal price, int instock, int min, int max)
+        {
+            ProductID = ID;
+            Name = name;
+            Price = price;
+            InStock = instock;
+            Min = min;
+            Max = max;
         }
     }
 }

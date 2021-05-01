@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MatthewJacksonInventorySystem
+﻿namespace MatthewJacksonInventorySystem
 {
     abstract class Part
     {
@@ -14,6 +8,15 @@ namespace MatthewJacksonInventorySystem
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
+        protected Part(int id, string name, decimal price, int instock, int min, int max)
+        {
+            PartID = id;
+            Name = name;
+            Price = price;
+            InStock = instock;
+            Min = min;
+            Max = max;
+        }
 
     }
 }

@@ -29,27 +29,17 @@ namespace MatthewJacksonInventorySystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.addProductLabel = new System.Windows.Forms.Label();
+            this.modifyProductLabel = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.candidatePartsdataGridView = new System.Windows.Forms.DataGridView();
-            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.candidatePartsLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.associatedPartsDatagridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.inventoryLabel = new System.Windows.Forms.Label();
@@ -67,15 +57,15 @@ namespace MatthewJacksonInventorySystem
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDatagridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // addProductLabel
+            // modifyProductLabel
             // 
-            this.addProductLabel.AutoSize = true;
-            this.addProductLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addProductLabel.Location = new System.Drawing.Point(13, 24);
-            this.addProductLabel.Name = "addProductLabel";
-            this.addProductLabel.Size = new System.Drawing.Size(126, 25);
-            this.addProductLabel.TabIndex = 0;
-            this.addProductLabel.Text = "Add Product";
+            this.modifyProductLabel.AutoSize = true;
+            this.modifyProductLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.modifyProductLabel.Location = new System.Drawing.Point(13, 24);
+            this.modifyProductLabel.Name = "modifyProductLabel";
+            this.modifyProductLabel.Size = new System.Drawing.Size(153, 25);
+            this.modifyProductLabel.TabIndex = 0;
+            this.modifyProductLabel.Text = "Modify Product";
             // 
             // searchButton
             // 
@@ -106,42 +96,12 @@ namespace MatthewJacksonInventorySystem
             // candidatePartsdataGridView
             // 
             this.candidatePartsdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.candidatePartsdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.partID,
-            this.nameColumn,
-            this.inventoryColumn,
-            this.minColumn,
-            this.maxColumn});
             this.candidatePartsdataGridView.Location = new System.Drawing.Point(592, 87);
             this.candidatePartsdataGridView.Name = "candidatePartsdataGridView";
             this.candidatePartsdataGridView.RowTemplate.Height = 25;
             this.candidatePartsdataGridView.Size = new System.Drawing.Size(543, 201);
             this.candidatePartsdataGridView.TabIndex = 4;
-            // 
-            // partID
-            // 
-            this.partID.HeaderText = "Part ID";
-            this.partID.Name = "partID";
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            // 
-            // inventoryColumn
-            // 
-            this.inventoryColumn.HeaderText = "Inventory";
-            this.inventoryColumn.Name = "inventoryColumn";
-            // 
-            // minColumn
-            // 
-            this.minColumn.HeaderText = "Min";
-            this.minColumn.Name = "minColumn";
-            // 
-            // maxColumn
-            // 
-            this.maxColumn.HeaderText = "Max";
-            this.maxColumn.Name = "maxColumn";
+            this.candidatePartsdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.candidatePartsdataGridView_CellClick);
             // 
             // candidatePartsLabel
             // 
@@ -195,42 +155,12 @@ namespace MatthewJacksonInventorySystem
             // associatedPartsDatagridView
             // 
             this.associatedPartsDatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.associatedPartsDatagridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
             this.associatedPartsDatagridView.Location = new System.Drawing.Point(588, 353);
             this.associatedPartsDatagridView.Name = "associatedPartsDatagridView";
             this.associatedPartsDatagridView.RowTemplate.Height = 25;
             this.associatedPartsDatagridView.Size = new System.Drawing.Size(543, 201);
             this.associatedPartsDatagridView.TabIndex = 10;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Part ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Inventory";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Min";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Max";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.associatedPartsDatagridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.associatedPartsDatagridView_CellClick);
             // 
             // idLabel
             // 
@@ -331,8 +261,10 @@ namespace MatthewJacksonInventorySystem
             // 
             // ModifyProduct
             // 
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(1161, 674);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -354,7 +286,7 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.candidatePartsLabel);
             this.Controls.Add(this.candidatePartsdataGridView);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.addProductLabel);
+            this.Controls.Add(this.modifyProductLabel);
             this.Name = "ModifyProduct";
             this.Text = "Product";
             this.Load += new System.EventHandler(this.AddProduct_Load);
@@ -369,27 +301,17 @@ namespace MatthewJacksonInventorySystem
 
         #endregion
 
-        private System.Windows.Forms.Label addProductLabel;
+        private System.Windows.Forms.Label modifyProductLabel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.DataGridView candidatePartsdataGridView;
         private System.Windows.Forms.Label candidatePartsLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView associatedPartsDatagridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label inventoryLabel;

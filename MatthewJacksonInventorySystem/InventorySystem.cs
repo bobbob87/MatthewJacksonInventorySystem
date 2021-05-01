@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.ComponentModel;
 
 namespace MatthewJacksonInventorySystem
 {
@@ -16,6 +9,10 @@ namespace MatthewJacksonInventorySystem
         public inventoryForm()
         {
             InitializeComponent();
+
+            ProductsDataGridView.DataSource = Inventory.Products;
+            partsDataGridView.DataSource = Inventory.AllParts;
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -39,7 +36,7 @@ namespace MatthewJacksonInventorySystem
             newMDIChild.MdiParent = ParentForm;
             newMDIChild.Show();
             newMDIChild.BringToFront();
-        
+
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -59,17 +56,50 @@ namespace MatthewJacksonInventorySystem
 
         private void partsSearchButton_Click(object sender, EventArgs e)
         {
-
+            BindingList<Part> TempPartList = new BindingList<Part>();
+            bool found = false;
+            if (partsSearchTextBox.Text != "")
+            {
+                for (int i = 0; i < Inventory.AllParts.Count; i++)
+                {
+                    if (Inventory.AllParts[i].Name.ToUpper().Contains(partsSearchTextBox.Text.ToUpper()))
+                    {
+                        TempPartList.Add(Inventory.AllParts[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                    partsDataGridView.DataSource = TempPartList;
+            }
+            if (!found)
+            {
+                MessageBox.Show("No Search Results.");
+                partsDataGridView.DataSource = Inventory.AllParts;
+            }
         }
 
         private void productsSearchButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void partsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            BindingList<Product> TempProductList = new BindingList<Product>();
+            bool found = false;
+            if (productsSearchTextBox.Text != "")
+            {
+                for (int i = 0; i < Inventory.Products.Count; i++)
+                {
+                    if (Inventory.Products[i].Name.ToUpper().Contains(productsSearchTextBox.Text.ToUpper()))
+                    {
+                        TempProductList.Add(Inventory.Products[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                    ProductsDataGridView.DataSource = TempProductList;
+            }
+            if (!found)
+            {
+                MessageBox.Show("No Search Results.");
+                ProductsDataGridView.DataSource = Inventory.Products;
+            }
         }
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -97,12 +127,92 @@ namespace MatthewJacksonInventorySystem
 
         private void partsDeleteButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.AllParts.Count == 0)
+            {
+                string box_msg = "Please select a valid Part";
 
+                string box_title = "Selection Error";
+
+                MessageBox.Show(box_msg, box_title);
+            }
+            else
+            {
+                string message = "Are you sure you wish to delete this part?";
+                string caption = "Please Confirm Deletion";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Inventory.deletePart(Inventory.AllParts[Inventory.currentPart]);
+                }
+            }
         }
 
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.Products.Count == 0)
+            {
+                string box_msg = "Please select a valid Product";
 
+                string box_title = "Selection Error";
+
+                MessageBox.Show(box_msg, box_title);
+            }
+            else
+            {
+                string message = "Are you sure you wish to delete this product?";
+                string caption = "Please Confirm Deletion";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Inventory.removeProduct(Product.currentProduct);
+                }
+            }        
+        }
+
+        private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Product.currentProduct = ProductsDataGridView.CurrentCell.RowIndex;
+
+        }
+
+        private void partsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Inventory.currentPart = partsDataGridView.CurrentCell.RowIndex;
+        }
+
+        private void partsSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    partsSearchButton.PerformClick();
+            //}
+        }
+
+        private void productsSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productsSearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                productsSearchButton.PerformClick();
+            }
+        }
+
+        private void partsSearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                partsSearchButton.PerformClick();
+            }
         }
     }
 }

@@ -29,10 +29,6 @@ namespace MatthewJacksonInventorySystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inventoryForm));
             this.productsGroupBox = new System.Windows.Forms.GroupBox();
             this.productDeleteButton = new System.Windows.Forms.Button();
@@ -40,10 +36,6 @@ namespace MatthewJacksonInventorySystem
             this.productsAddButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.partsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsGroupBox = new System.Windows.Forms.GroupBox();
             this.partsDeleteButton = new System.Windows.Forms.Button();
             this.partsModifyButton = new System.Windows.Forms.Button();
@@ -52,22 +44,18 @@ namespace MatthewJacksonInventorySystem
             this.partsLabel = new System.Windows.Forms.Label();
             this.productsLabel = new System.Windows.Forms.Label();
             this.partSearchGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.partsSearchTextBox = new System.Windows.Forms.TextBox();
             this.partsSearchButton = new System.Windows.Forms.Button();
             this.productSearchgroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.productsSearchTextBox = new System.Windows.Forms.TextBox();
             this.productsSearchButton = new System.Windows.Forms.Button();
-            this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.productsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).BeginInit();
             this.partsGroupBox.SuspendLayout();
             this.partSearchGroupBox.SuspendLayout();
             this.productSearchgroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // productsGroupBox
@@ -77,7 +65,7 @@ namespace MatthewJacksonInventorySystem
             this.productsGroupBox.Controls.Add(this.productsModifyButton);
             this.productsGroupBox.Controls.Add(this.productsAddButton);
             this.productsGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.productsGroupBox.Location = new System.Drawing.Point(867, 369);
+            this.productsGroupBox.Location = new System.Drawing.Point(1157, 369);
             this.productsGroupBox.Name = "productsGroupBox";
             this.productsGroupBox.Size = new System.Drawing.Size(220, 75);
             this.productsGroupBox.TabIndex = 0;
@@ -119,7 +107,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.exitButton.Location = new System.Drawing.Point(1012, 466);
+            this.exitButton.Location = new System.Drawing.Point(1302, 507);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 31);
             this.exitButton.TabIndex = 4;
@@ -129,49 +117,23 @@ namespace MatthewJacksonInventorySystem
             // 
             // partsDataGridView
             // 
+            this.partsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.partsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idColumn,
-            this.nameColumn,
-            this.inventoryColumn,
-            this.priceColumn});
-            this.partsDataGridView.Location = new System.Drawing.Point(51, 114);
+            this.partsDataGridView.Location = new System.Drawing.Point(12, 117);
             this.partsDataGridView.Name = "partsDataGridView";
+            this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowTemplate.Height = 25;
-            this.partsDataGridView.Size = new System.Drawing.Size(443, 246);
+            this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.partsDataGridView.Size = new System.Drawing.Size(688, 246);
             this.partsDataGridView.TabIndex = 7;
-            this.partsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.partsDataGridView_CellContentClick);
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "Part ID";
-            this.idColumn.Name = "idColumn";
-            // 
-            // nameColumn
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.nameColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.nameColumn.HeaderText = "Part Name";
-            this.nameColumn.Name = "nameColumn";
-            // 
-            // inventoryColumn
-            // 
-            this.inventoryColumn.HeaderText = "Inventory";
-            this.inventoryColumn.Name = "inventoryColumn";
-            // 
-            // priceColumn
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.priceColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.priceColumn.HeaderText = "Price";
-            this.priceColumn.Name = "priceColumn";
+            this.partsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.partsDataGridView_CellClick);
             // 
             // partsGroupBox
             // 
             this.partsGroupBox.Controls.Add(this.partsDeleteButton);
             this.partsGroupBox.Controls.Add(this.partsModifyButton);
             this.partsGroupBox.Controls.Add(this.partsAddButton);
-            this.partsGroupBox.Location = new System.Drawing.Point(265, 369);
+            this.partsGroupBox.Location = new System.Drawing.Point(471, 369);
             this.partsGroupBox.Name = "partsGroupBox";
             this.partsGroupBox.Size = new System.Drawing.Size(229, 75);
             this.partsGroupBox.TabIndex = 8;
@@ -224,7 +186,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.partsLabel.AutoSize = true;
             this.partsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.partsLabel.Location = new System.Drawing.Point(46, 86);
+            this.partsLabel.Location = new System.Drawing.Point(12, 86);
             this.partsLabel.Name = "partsLabel";
             this.partsLabel.Size = new System.Drawing.Size(58, 25);
             this.partsLabel.TabIndex = 10;
@@ -234,7 +196,7 @@ namespace MatthewJacksonInventorySystem
             // 
             this.productsLabel.AutoSize = true;
             this.productsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.productsLabel.Location = new System.Drawing.Point(639, 86);
+            this.productsLabel.Location = new System.Drawing.Point(733, 86);
             this.productsLabel.Name = "productsLabel";
             this.productsLabel.Size = new System.Drawing.Size(92, 25);
             this.productsLabel.TabIndex = 11;
@@ -242,20 +204,22 @@ namespace MatthewJacksonInventorySystem
             // 
             // partSearchGroupBox
             // 
-            this.partSearchGroupBox.Controls.Add(this.textBox1);
+            this.partSearchGroupBox.Controls.Add(this.partsSearchTextBox);
             this.partSearchGroupBox.Controls.Add(this.partsSearchButton);
-            this.partSearchGroupBox.Location = new System.Drawing.Point(208, 61);
+            this.partSearchGroupBox.Location = new System.Drawing.Point(409, 71);
             this.partSearchGroupBox.Name = "partSearchGroupBox";
             this.partSearchGroupBox.Size = new System.Drawing.Size(291, 34);
             this.partSearchGroupBox.TabIndex = 6;
             this.partSearchGroupBox.TabStop = false;
             // 
-            // textBox1
+            // partsSearchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 23);
-            this.textBox1.TabIndex = 4;
+            this.partsSearchTextBox.Location = new System.Drawing.Point(88, 11);
+            this.partsSearchTextBox.Name = "partsSearchTextBox";
+            this.partsSearchTextBox.Size = new System.Drawing.Size(198, 23);
+            this.partsSearchTextBox.TabIndex = 4;
+            this.partsSearchTextBox.TextChanged += new System.EventHandler(this.partsSearchTextBox_TextChanged);
+            this.partsSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partsSearchTextBox_KeyDown);
             // 
             // partsSearchButton
             // 
@@ -269,20 +233,22 @@ namespace MatthewJacksonInventorySystem
             // 
             // productSearchgroupBox
             // 
-            this.productSearchgroupBox.Controls.Add(this.textBox2);
+            this.productSearchgroupBox.Controls.Add(this.productsSearchTextBox);
             this.productSearchgroupBox.Controls.Add(this.productsSearchButton);
-            this.productSearchgroupBox.Location = new System.Drawing.Point(796, 61);
+            this.productSearchgroupBox.Location = new System.Drawing.Point(1086, 71);
             this.productSearchgroupBox.Name = "productSearchgroupBox";
             this.productSearchgroupBox.Size = new System.Drawing.Size(291, 34);
             this.productSearchgroupBox.TabIndex = 7;
             this.productSearchgroupBox.TabStop = false;
             // 
-            // textBox2
+            // productsSearchTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(198, 23);
-            this.textBox2.TabIndex = 4;
+            this.productsSearchTextBox.Location = new System.Drawing.Point(93, 11);
+            this.productsSearchTextBox.Name = "productsSearchTextBox";
+            this.productsSearchTextBox.Size = new System.Drawing.Size(198, 23);
+            this.productsSearchTextBox.TabIndex = 4;
+            this.productsSearchTextBox.TextChanged += new System.EventHandler(this.productsSearchTextBox_TextChanged);
+            this.productsSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.productsSearchTextBox_KeyDown);
             // 
             // productsSearchButton
             // 
@@ -294,51 +260,27 @@ namespace MatthewJacksonInventorySystem
             this.productsSearchButton.UseVisualStyleBackColor = true;
             this.productsSearchButton.Click += new System.EventHandler(this.productsSearchButton_Click);
             // 
-            // productsDataGridView
+            // ProductsDataGridView
             // 
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.productsDataGridView.Location = new System.Drawing.Point(644, 117);
-            this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.RowTemplate.Height = 25;
-            this.productsDataGridView.Size = new System.Drawing.Size(443, 246);
-            this.productsDataGridView.TabIndex = 12;
-            this.productsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Product ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Product Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Inventory";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.ProductsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductsDataGridView.Location = new System.Drawing.Point(733, 117);
+            this.ProductsDataGridView.Name = "ProductsDataGridView";
+            this.ProductsDataGridView.RowHeadersVisible = false;
+            this.ProductsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.ProductsDataGridView.RowTemplate.Height = 25;
+            this.ProductsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ProductsDataGridView.Size = new System.Drawing.Size(644, 246);
+            this.ProductsDataGridView.TabIndex = 12;
+            this.ProductsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellClick);
             // 
             // inventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 509);
-            this.Controls.Add(this.productsDataGridView);
+            this.CancelButton = this.exitButton;
+            this.ClientSize = new System.Drawing.Size(1423, 550);
+            this.Controls.Add(this.ProductsDataGridView);
             this.Controls.Add(this.productSearchgroupBox);
             this.Controls.Add(this.partSearchGroupBox);
             this.Controls.Add(this.productsLabel);
@@ -358,7 +300,7 @@ namespace MatthewJacksonInventorySystem
             this.partSearchGroupBox.PerformLayout();
             this.productSearchgroupBox.ResumeLayout(false);
             this.productSearchgroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,26 +317,18 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.Button partsDeleteButton;
         private System.Windows.Forms.Button partsModifyButton;
         private System.Windows.Forms.Button partsAddButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
         private System.Windows.Forms.Label mainScreenLabel;
         private System.Windows.Forms.Label partsLabel;
         private System.Windows.Forms.Label productsLabel;
         private System.Windows.Forms.GroupBox partSearchGroupBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox partsSearchTextBox;
         private System.Windows.Forms.Button parts;
         private System.Windows.Forms.GroupBox productSearchgroupBox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox productsSearchTextBox;
         private System.Windows.Forms.Button productsSearchButton;
         private System.Windows.Forms.Button partsSea;
         private System.Windows.Forms.Button partsSearchButton;
-        private System.Windows.Forms.DataGridView productsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridView ProductsDataGridView;
         private System.Windows.Forms.Button productDel;
         private System.Windows.Forms.Button productDeleteButton;
     }

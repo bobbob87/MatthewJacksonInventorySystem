@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MatthewJacksonInventorySystem
@@ -15,6 +9,8 @@ namespace MatthewJacksonInventorySystem
         public AddProduct()
         {
             InitializeComponent();
+            candidatePartsdataGridView.DataSource = Inventory.AllParts;
+            associatedPartsDatagridView.DataSource = Product.AssociatedParts;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -31,11 +27,35 @@ namespace MatthewJacksonInventorySystem
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
+            BindingList<Part> TempPartList = new BindingList<Part>();
+            bool found = false;
+            if (searchTextBox.Text != "")
+            {
+                for (int i = 0; i < Inventory.AllParts.Count; i++)
+                {
+                    if (Inventory.AllParts[i].Name.ToUpper().Contains(searchTextBox.Text.ToUpper()))
+                    {
+                        TempPartList.Add(Inventory.AllParts[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                    candidatePartsdataGridView.DataSource = TempPartList;
+            }
+            if (!found)
+            {
+                MessageBox.Show("No Search Results.");
+                candidatePartsdataGridView.DataSource = Inventory.AllParts;
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            candidatePartsdataGridView.Rows.RemoveAt(Product.currentCandidatePart);
+            if (Product.currentCandidatePart <= Inventory.AllParts.Count)
+            {
+                Product.AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
+            }
 
         }
 
@@ -45,6 +65,11 @@ namespace MatthewJacksonInventorySystem
         }
 
         private void saveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void candidatePartsdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
