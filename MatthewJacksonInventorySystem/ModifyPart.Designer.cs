@@ -114,6 +114,7 @@ namespace MatthewJacksonInventorySystem
             this.mOrCompanyTexBox.Name = "mOrCompanyTexBox";
             this.mOrCompanyTexBox.Size = new System.Drawing.Size(170, 23);
             this.mOrCompanyTexBox.TabIndex = 3;
+            this.mOrCompanyTexBox.TextChanged += new System.EventHandler(this.mOrCompanyTexBox_TextChanged);
             // 
             // nameLabel
             // 
@@ -170,6 +171,7 @@ namespace MatthewJacksonInventorySystem
             this.maxTextBox.Name = "maxTextBox";
             this.maxTextBox.Size = new System.Drawing.Size(56, 23);
             this.maxTextBox.TabIndex = 9;
+            this.maxTextBox.TextChanged += new System.EventHandler(this.maxTextBox_TextChanged);
             // 
             // minLabel
             // 
@@ -186,6 +188,7 @@ namespace MatthewJacksonInventorySystem
             this.minTextBox.Name = "minTextBox";
             this.minTextBox.Size = new System.Drawing.Size(56, 23);
             this.minTextBox.TabIndex = 11;
+            this.minTextBox.TextChanged += new System.EventHandler(this.minTextBox_TextChanged);
             // 
             // priceTextBox
             // 
@@ -193,6 +196,7 @@ namespace MatthewJacksonInventorySystem
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(170, 23);
             this.priceTextBox.TabIndex = 12;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             // 
             // InventoryTextBox
             // 
@@ -200,6 +204,7 @@ namespace MatthewJacksonInventorySystem
             this.InventoryTextBox.Name = "InventoryTextBox";
             this.InventoryTextBox.Size = new System.Drawing.Size(170, 23);
             this.InventoryTextBox.TabIndex = 13;
+            this.InventoryTextBox.TextChanged += new System.EventHandler(this.InventoryTextBox_TextChanged);
             // 
             // nameTextBox
             // 
@@ -207,6 +212,7 @@ namespace MatthewJacksonInventorySystem
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(170, 23);
             this.nameTextBox.TabIndex = 14;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // idTextBox
             // 
