@@ -11,6 +11,8 @@ namespace MatthewJacksonInventorySystem
         // public static BindingList<Product> Products { get; set; }
         public static BindingList<Part> AllParts = new BindingList<Part>();
         //public static BindingList<Part> AllParts { get; set; }
+        public static int CurrentPartIndex { get; set; }
+        public static int CurrentProductIndex { get; set; }
         public static void addProduct(Product product)
         {
             Products.Add(product);

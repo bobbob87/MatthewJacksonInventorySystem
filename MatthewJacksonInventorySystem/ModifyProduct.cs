@@ -16,6 +16,7 @@ namespace MatthewJacksonInventorySystem
             priceTextBox.Text = Inventory.Products[Product.currentProduct].Price.ToString();
             minTextBox.Text = Inventory.Products[Product.currentProduct].Min.ToString();
             maxTextBox.Text = Inventory.Products[Product.currentProduct].Max.ToString();
+
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
             associatedPartsDatagridView.DataSource = Product.AssociatedParts;
         }
@@ -93,6 +94,7 @@ namespace MatthewJacksonInventorySystem
         private void candidatePartsdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Product.currentCandidatePart = candidatePartsdataGridView.CurrentCell.RowIndex;
+            Inventory.CurrentPartIndex = candidatePartsdataGridView.CurrentCell.RowIndex;
         }
 
         private void associatedPartsDatagridView_CellClick(object sender, DataGridViewCellEventArgs e)

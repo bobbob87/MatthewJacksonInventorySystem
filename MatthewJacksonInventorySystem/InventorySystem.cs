@@ -178,12 +178,13 @@ namespace MatthewJacksonInventorySystem
         private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Product.currentProduct = ProductsDataGridView.CurrentCell.RowIndex;
-
+            Inventory.CurrentProductIndex = ProductsDataGridView.CurrentCell.RowIndex;
         }
 
         private void partsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Part.currentPart = partsDataGridView.CurrentCell.RowIndex;
+            Inventory.CurrentPartIndex = partsDataGridView.CurrentCell.RowIndex;
         }
 
         private void partsSearchTextBox_TextChanged(object sender, EventArgs e)
