@@ -1,16 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace MatthewJacksonInventorySystem
 {
     public partial class AddProduct : Form
     {
+        private bool AllowSave()
+        {
+            int number;
+            return (!string.IsNullOrWhiteSpace(nameTextBox.Text)) && (!(string.IsNullOrWhiteSpace(priceTextBox.Text) || (!Int32.TryParse(priceTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out number))));
+        }
         public AddProduct()
         {
             InitializeComponent();
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
             associatedPartsDatagridView.DataSource = Product.AssociatedParts;
+            idTextBox.Text = Inventory.Products[Inventory.CurrentProductIndex].ProductID.ToString();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

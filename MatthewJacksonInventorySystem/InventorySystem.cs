@@ -189,10 +189,7 @@ namespace MatthewJacksonInventorySystem
 
         private void partsSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    partsSearchButton.PerformClick();
-            //}
+
         }
 
         private void productsSearchTextBox_TextChanged(object sender, EventArgs e)

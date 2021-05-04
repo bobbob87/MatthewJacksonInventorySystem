@@ -32,7 +32,7 @@ namespace MatthewJacksonInventorySystem
         }
         public static void addPart(Part part)
         {
-            AllParts.Add(part);
+            AllParts.Insert(Inventory.AllParts.Count, part);
         }
         public static bool deletePart(Part part)
         {
@@ -43,9 +43,13 @@ namespace MatthewJacksonInventorySystem
         {
             return AllParts[part];
         }
-        public static void updatePart(int id, Part part)
+        public static void updatePart(int inc, Part part)
         {
-
+            {
+                AllParts.Insert(CurrentPartIndex, part);
+                AllParts.RemoveAt(CurrentPartIndex + inc);
+            }
         }
+
     }
 }

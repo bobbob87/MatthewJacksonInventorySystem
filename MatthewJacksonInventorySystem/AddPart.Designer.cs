@@ -34,7 +34,7 @@ namespace MatthewJacksonInventorySystem
             this.inHouseRadioButton = new System.Windows.Forms.RadioButton();
             this.outsourcedRadioButton = new System.Windows.Forms.RadioButton();
             this.inOrOutLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mOrCompanyTexBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.inventoryLabel = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@ namespace MatthewJacksonInventorySystem
             this.maxLabel = new System.Windows.Forms.Label();
             this.maxTextBox = new System.Windows.Forms.TextBox();
             this.minLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.minTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -56,9 +56,10 @@ namespace MatthewJacksonInventorySystem
             // 
             this.addPartLabel.AutoSize = true;
             this.addPartLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addPartLabel.Location = new System.Drawing.Point(6, 15);
+            this.addPartLabel.Location = new System.Drawing.Point(10, 30);
+            this.addPartLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.addPartLabel.Name = "addPartLabel";
-            this.addPartLabel.Size = new System.Drawing.Size(92, 25);
+            this.addPartLabel.Size = new System.Drawing.Size(161, 46);
             this.addPartLabel.TabIndex = 0;
             this.addPartLabel.Text = "Add Part";
             // 
@@ -66,18 +67,20 @@ namespace MatthewJacksonInventorySystem
             // 
             this.radioFlowLayoutPanel.Controls.Add(this.inHouseRadioButton);
             this.radioFlowLayoutPanel.Controls.Add(this.outsourcedRadioButton);
-            this.radioFlowLayoutPanel.Location = new System.Drawing.Point(241, 15);
+            this.radioFlowLayoutPanel.Location = new System.Drawing.Point(413, 30);
+            this.radioFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.radioFlowLayoutPanel.Name = "radioFlowLayoutPanel";
-            this.radioFlowLayoutPanel.Size = new System.Drawing.Size(177, 30);
+            this.radioFlowLayoutPanel.Size = new System.Drawing.Size(303, 60);
             this.radioFlowLayoutPanel.TabIndex = 1;
             // 
             // inHouseRadioButton
             // 
             this.inHouseRadioButton.AutoSize = true;
             this.inHouseRadioButton.Checked = true;
-            this.inHouseRadioButton.Location = new System.Drawing.Point(3, 3);
+            this.inHouseRadioButton.Location = new System.Drawing.Point(5, 6);
+            this.inHouseRadioButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.inHouseRadioButton.Name = "inHouseRadioButton";
-            this.inHouseRadioButton.Size = new System.Drawing.Size(74, 19);
+            this.inHouseRadioButton.Size = new System.Drawing.Size(123, 34);
             this.inHouseRadioButton.TabIndex = 1;
             this.inHouseRadioButton.TabStop = true;
             this.inHouseRadioButton.Text = "In-House";
@@ -87,9 +90,10 @@ namespace MatthewJacksonInventorySystem
             // outsourcedRadioButton
             // 
             this.outsourcedRadioButton.AutoSize = true;
-            this.outsourcedRadioButton.Location = new System.Drawing.Point(83, 3);
+            this.outsourcedRadioButton.Location = new System.Drawing.Point(138, 6);
+            this.outsourcedRadioButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.outsourcedRadioButton.Name = "outsourcedRadioButton";
-            this.outsourcedRadioButton.Size = new System.Drawing.Size(87, 19);
+            this.outsourcedRadioButton.Size = new System.Drawing.Size(146, 34);
             this.outsourcedRadioButton.TabIndex = 2;
             this.outsourcedRadioButton.TabStop = true;
             this.outsourcedRadioButton.Text = "Outsourced";
@@ -99,28 +103,32 @@ namespace MatthewJacksonInventorySystem
             // inOrOutLabel
             // 
             this.inOrOutLabel.AutoSize = true;
-            this.inOrOutLabel.Location = new System.Drawing.Point(168, 344);
+            this.inOrOutLabel.Location = new System.Drawing.Point(288, 688);
+            this.inOrOutLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.inOrOutLabel.Name = "inOrOutLabel";
             this.inOrOutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.inOrOutLabel.Size = new System.Drawing.Size(67, 15);
+            this.inOrOutLabel.Size = new System.Drawing.Size(120, 30);
             this.inOrOutLabel.TabIndex = 2;
             this.inOrOutLabel.Text = "Machine ID";
             this.inOrOutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.inOrOutLabel.Click += new System.EventHandler(this.inOrOutLabel_Click);
             // 
-            // textBox1
+            // mOrCompanyTexBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(263, 341);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 23);
-            this.textBox1.TabIndex = 3;
+            this.mOrCompanyTexBox.Location = new System.Drawing.Point(451, 682);
+            this.mOrCompanyTexBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.mOrCompanyTexBox.Name = "mOrCompanyTexBox";
+            this.mOrCompanyTexBox.Size = new System.Drawing.Size(263, 35);
+            this.mOrCompanyTexBox.TabIndex = 8;
+            this.mOrCompanyTexBox.TextChanged += new System.EventHandler(this.mOrCompanyTexBox_TextChanged);
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(196, 137);
+            this.nameLabel.Location = new System.Drawing.Point(336, 274);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(39, 15);
+            this.nameLabel.Size = new System.Drawing.Size(69, 30);
             this.nameLabel.TabIndex = 4;
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,9 +136,10 @@ namespace MatthewJacksonInventorySystem
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(217, 85);
+            this.idLabel.Location = new System.Drawing.Point(372, 170);
+            this.idLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(18, 15);
+            this.idLabel.Size = new System.Drawing.Size(34, 30);
             this.idLabel.TabIndex = 5;
             this.idLabel.Text = "ID";
             this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -138,9 +147,10 @@ namespace MatthewJacksonInventorySystem
             // inventoryLabel
             // 
             this.inventoryLabel.AutoSize = true;
-            this.inventoryLabel.Location = new System.Drawing.Point(178, 189);
+            this.inventoryLabel.Location = new System.Drawing.Point(305, 378);
+            this.inventoryLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.inventoryLabel.Name = "inventoryLabel";
-            this.inventoryLabel.Size = new System.Drawing.Size(57, 15);
+            this.inventoryLabel.Size = new System.Drawing.Size(100, 30);
             this.inventoryLabel.TabIndex = 6;
             this.inventoryLabel.Text = "Inventory";
             this.inventoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,9 +158,10 @@ namespace MatthewJacksonInventorySystem
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(167, 241);
+            this.priceLabel.Location = new System.Drawing.Point(286, 482);
+            this.priceLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(68, 15);
+            this.priceLabel.Size = new System.Drawing.Size(119, 30);
             this.priceLabel.TabIndex = 7;
             this.priceLabel.Text = "Price / Cost";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -158,69 +169,83 @@ namespace MatthewJacksonInventorySystem
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(205, 293);
+            this.maxLabel.Location = new System.Drawing.Point(351, 586);
+            this.maxLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.maxLabel.Name = "maxLabel";
-            this.maxLabel.Size = new System.Drawing.Size(30, 15);
+            this.maxLabel.Size = new System.Drawing.Size(53, 30);
             this.maxLabel.TabIndex = 8;
             this.maxLabel.Text = "Max";
             // 
             // maxTextBox
             // 
-            this.maxTextBox.Location = new System.Drawing.Point(263, 290);
+            this.maxTextBox.Location = new System.Drawing.Point(451, 580);
+            this.maxTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.maxTextBox.Name = "maxTextBox";
-            this.maxTextBox.Size = new System.Drawing.Size(100, 23);
-            this.maxTextBox.TabIndex = 9;
+            this.maxTextBox.Size = new System.Drawing.Size(169, 35);
+            this.maxTextBox.TabIndex = 6;
+            this.maxTextBox.TextChanged += new System.EventHandler(this.maxTextBox_TextChanged);
             // 
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(384, 293);
+            this.minLabel.Location = new System.Drawing.Point(658, 586);
+            this.minLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.minLabel.Name = "minLabel";
-            this.minLabel.Size = new System.Drawing.Size(28, 15);
+            this.minLabel.Size = new System.Drawing.Size(49, 30);
             this.minLabel.TabIndex = 10;
             this.minLabel.Text = "Min";
             // 
-            // textBox2
+            // minTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(430, 290);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 11;
+            this.minTextBox.Location = new System.Drawing.Point(737, 580);
+            this.minTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.minTextBox.Name = "minTextBox";
+            this.minTextBox.Size = new System.Drawing.Size(169, 35);
+            this.minTextBox.TabIndex = 7;
+            this.minTextBox.TextChanged += new System.EventHandler(this.minTextBox_TextChanged);
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(263, 241);
+            this.priceTextBox.Location = new System.Drawing.Point(451, 482);
+            this.priceTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(155, 23);
-            this.priceTextBox.TabIndex = 12;
+            this.priceTextBox.Size = new System.Drawing.Size(263, 35);
+            this.priceTextBox.TabIndex = 5;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             // 
             // InventoryTextBox
             // 
-            this.InventoryTextBox.Location = new System.Drawing.Point(263, 189);
+            this.InventoryTextBox.Location = new System.Drawing.Point(451, 378);
+            this.InventoryTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.InventoryTextBox.Name = "InventoryTextBox";
-            this.InventoryTextBox.Size = new System.Drawing.Size(155, 23);
-            this.InventoryTextBox.TabIndex = 13;
+            this.InventoryTextBox.Size = new System.Drawing.Size(263, 35);
+            this.InventoryTextBox.TabIndex = 4;
+            this.InventoryTextBox.TextChanged += new System.EventHandler(this.InventoryTextBox_TextChanged);
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(263, 137);
+            this.nameTextBox.Location = new System.Drawing.Point(451, 274);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(155, 23);
-            this.nameTextBox.TabIndex = 14;
+            this.nameTextBox.Size = new System.Drawing.Size(263, 35);
+            this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(263, 85);
+            this.idTextBox.Location = new System.Drawing.Point(451, 170);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(155, 23);
+            this.idTextBox.Size = new System.Drawing.Size(263, 35);
             this.idTextBox.TabIndex = 15;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(579, 398);
+            this.saveButton.Location = new System.Drawing.Point(993, 796);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(129, 46);
             this.saveButton.TabIndex = 16;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -228,9 +253,10 @@ namespace MatthewJacksonInventorySystem
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(687, 398);
+            this.cancelButton.Location = new System.Drawing.Point(1178, 796);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(129, 46);
             this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -238,16 +264,16 @@ namespace MatthewJacksonInventorySystem
             // 
             // AddPart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1371, 900);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.InventoryTextBox);
             this.Controls.Add(this.priceTextBox);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.minTextBox);
             this.Controls.Add(this.minLabel);
             this.Controls.Add(this.maxTextBox);
             this.Controls.Add(this.maxLabel);
@@ -255,10 +281,11 @@ namespace MatthewJacksonInventorySystem
             this.Controls.Add(this.inventoryLabel);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.mOrCompanyTexBox);
             this.Controls.Add(this.inOrOutLabel);
             this.Controls.Add(this.addPartLabel);
             this.Controls.Add(this.radioFlowLayoutPanel);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "AddPart";
             this.Text = "Part";
             this.radioFlowLayoutPanel.ResumeLayout(false);
@@ -275,7 +302,7 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.RadioButton inHouseRadioButton;
         private System.Windows.Forms.RadioButton outsourcedRadioButton;
         private System.Windows.Forms.Label inOrOutLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox mOrCompanyTexBox;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Label inventoryLabel;
@@ -283,7 +310,7 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.Label maxLabel;
         private System.Windows.Forms.TextBox maxTextBox;
         private System.Windows.Forms.Label minLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox minTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox nameTextBox;

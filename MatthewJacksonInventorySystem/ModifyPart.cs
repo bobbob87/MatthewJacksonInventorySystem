@@ -40,16 +40,21 @@ namespace MatthewJacksonInventorySystem
             minTextBox.Text = Inventory.AllParts[Part.currentPart].Min.ToString();
             maxTextBox.Text = Inventory.AllParts[Part.currentPart].Max.ToString();
 
-            // ****NEED TO GET THIS WORKING!****
-            //if (Inventory.AllParts[Part.currentPart] is Outsourced)
-            //{
-            //    outsourcedRadioButton.Checked = true;
-            //    mOrCompanyTexBox.Text = Inventory.AllParts[Part.currentPart].
-            //}
-            //else
-            //{
-            //    inHouseRadioButton.Checked = true;
-            //}
+            if (Inventory.AllParts[Part.currentPart] is Outsourced)
+            {
+                Outsourced e = (Outsourced)Inventory.lookupPart(Part.currentPart);
+                mOrCompanyTexBox.Text = e.CompanyName;
+                isInhouse = false;
+                outsourcedRadioButton.Checked = true;
+
+            }
+            else
+            {
+                Inhouse e = (Inhouse)Inventory.lookupPart(Part.currentPart);
+                mOrCompanyTexBox.Text = e.MachineID.ToString() ;
+                inHouseRadioButton.Checked = true;
+                isInhouse = true;
+            }
         }
 
         private void inHouseRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -71,7 +76,20 @@ namespace MatthewJacksonInventorySystem
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (isInhouse)
+            {
+                Part p = new Inhouse(Convert.ToInt32(idTextBox.Text), nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(InventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text), Convert.ToInt32(mOrCompanyTexBox.Text));
+                Inventory.updatePart(1,p);
+            }
+            else
+            {
+                Part p = new Outsourced(Convert.ToInt32(idTextBox.Text), nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(InventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text), mOrCompanyTexBox.Text);
+                Inventory.updatePart(1,p);
+            }
 
+            this.Hide();
+            inventoryForm f = new();
+            f.Show();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
