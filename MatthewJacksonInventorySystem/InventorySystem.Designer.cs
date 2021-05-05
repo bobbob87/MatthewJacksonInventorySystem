@@ -122,6 +122,7 @@ namespace MatthewJacksonInventorySystem
             this.partsDataGridView.Location = new System.Drawing.Point(12, 117);
             this.partsDataGridView.Name = "partsDataGridView";
             this.partsDataGridView.RowHeadersVisible = false;
+            this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(688, 246);

@@ -16,15 +16,20 @@ namespace MatthewJacksonInventorySystem
             return (!string.IsNullOrWhiteSpace(nameTextBox.Text)) && (!(string.IsNullOrWhiteSpace(priceTextBox.Text) || (!Int32.TryParse(priceTextBox.Text, out number))))
                && (!(string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out number))))
                && (!(string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out number))))
-               && (!(string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out number))));
+               && (!(string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out number))))
+               && !(associatedPartsDatagridView.RowCount == 0);
         }
         public AddProduct()
         {
             InitializeComponent();
+            Product p = new("Default", 3, 2, 1, 3);
+            Inventory.Products.Add(p);
+            Inventory.CurrentProductIndex = Inventory.Products.Count -1;
             int id = 1;
             idTextBox.Text = (id + Inventory.Products.Last().ProductID).ToString();
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
             //associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
+
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -65,7 +70,6 @@ namespace MatthewJacksonInventorySystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            // candidatePartsdataGridView.Rows.RemoveAt(Product.currentCandidatePart);
             if (associatedPartsDatagridView.RowCount >= 0)
             {
                 Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
@@ -87,6 +91,7 @@ namespace MatthewJacksonInventorySystem
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     Product.RemoveAssociatedPart(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts[Product.CurrentAssociatedPart]);
+                    saveButton.Enabled = AllowSave();
                 }
             }
             else
@@ -99,14 +104,16 @@ namespace MatthewJacksonInventorySystem
                     MessageBox.Show(box_msg, box_title);
                 }
             }
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            {
-                Product p = new Product(nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
-                Inventory.Products.Add(p);
-            }
+
+            Product p = new Product(nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
+            p.AssociatedParts = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
+            Inventory.Products.RemoveAt(Inventory.CurrentProductIndex);
+            Inventory.Products.Add(p);
 
             this.Hide();
             inventoryForm f = new();
@@ -192,6 +199,11 @@ namespace MatthewJacksonInventorySystem
             {
                 Product.CurrentAssociatedPart = associatedPartsDatagridView.CurrentCell.RowIndex;
             }
+        }
+
+        private void associatedPartsDatagridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            saveButton.Enabled = AllowSave();
         }
     }
 }

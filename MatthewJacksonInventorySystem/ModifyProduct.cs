@@ -101,6 +101,7 @@ namespace MatthewJacksonInventorySystem
         {
             {
                 Product p = new Product(Convert.ToInt32(idTextBox.Text), nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
+                p.AssociatedParts = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
                 Inventory.updateProduct(1, p);
             }
 

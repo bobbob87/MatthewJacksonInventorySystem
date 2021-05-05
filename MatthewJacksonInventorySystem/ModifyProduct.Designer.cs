@@ -95,10 +95,14 @@ namespace MatthewJacksonInventorySystem
             // 
             // candidatePartsdataGridView
             // 
+            this.candidatePartsdataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.candidatePartsdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.candidatePartsdataGridView.Location = new System.Drawing.Point(592, 87);
             this.candidatePartsdataGridView.Name = "candidatePartsdataGridView";
+            this.candidatePartsdataGridView.RowHeadersVisible = false;
+            this.candidatePartsdataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.candidatePartsdataGridView.RowTemplate.Height = 25;
+            this.candidatePartsdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.candidatePartsdataGridView.Size = new System.Drawing.Size(543, 201);
             this.candidatePartsdataGridView.TabIndex = 4;
             this.candidatePartsdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.candidatePartsdataGridView_CellClick);
@@ -154,10 +158,14 @@ namespace MatthewJacksonInventorySystem
             // 
             // associatedPartsDatagridView
             // 
+            this.associatedPartsDatagridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.associatedPartsDatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.associatedPartsDatagridView.Location = new System.Drawing.Point(588, 353);
             this.associatedPartsDatagridView.Name = "associatedPartsDatagridView";
+            this.associatedPartsDatagridView.RowHeadersVisible = false;
+            this.associatedPartsDatagridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.associatedPartsDatagridView.RowTemplate.Height = 25;
+            this.associatedPartsDatagridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.associatedPartsDatagridView.Size = new System.Drawing.Size(543, 201);
             this.associatedPartsDatagridView.TabIndex = 10;
             this.associatedPartsDatagridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.associatedPartsDatagridView_CellClick);
