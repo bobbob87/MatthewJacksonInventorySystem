@@ -83,7 +83,7 @@ namespace MatthewJacksonInventorySystem
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PlaceholderText = "Enter search text here...";
             this.searchTextBox.Size = new System.Drawing.Size(237, 23);
-            this.searchTextBox.TabIndex = 2;
+            this.searchTextBox.TabIndex = 6;
             // 
             // flowLayoutPanel1
             // 
@@ -161,6 +161,7 @@ namespace MatthewJacksonInventorySystem
             this.associatedPartsDatagridView.RowTemplate.Height = 25;
             this.associatedPartsDatagridView.Size = new System.Drawing.Size(543, 201);
             this.associatedPartsDatagridView.TabIndex = 10;
+            this.associatedPartsDatagridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.associatedPartsDatagridView_CellContentClick);
             // 
             // idLabel
             // 
@@ -212,7 +213,8 @@ namespace MatthewJacksonInventorySystem
             this.maxTextBox.Location = new System.Drawing.Point(208, 409);
             this.maxTextBox.Name = "maxTextBox";
             this.maxTextBox.Size = new System.Drawing.Size(78, 23);
-            this.maxTextBox.TabIndex = 16;
+            this.maxTextBox.TabIndex = 4;
+            this.maxTextBox.TextChanged += new System.EventHandler(this.maxTextBox_TextChanged);
             // 
             // minLabel
             // 
@@ -228,28 +230,32 @@ namespace MatthewJacksonInventorySystem
             this.minTextBox.Location = new System.Drawing.Point(357, 409);
             this.minTextBox.Name = "minTextBox";
             this.minTextBox.Size = new System.Drawing.Size(78, 23);
-            this.minTextBox.TabIndex = 0;
+            this.minTextBox.TabIndex = 5;
+            this.minTextBox.TextChanged += new System.EventHandler(this.minTextBox_TextChanged);
             // 
             // priceTextBox
             // 
             this.priceTextBox.Location = new System.Drawing.Point(208, 360);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(227, 23);
-            this.priceTextBox.TabIndex = 18;
+            this.priceTextBox.TabIndex = 3;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             // 
             // inventoryTextBox
             // 
             this.inventoryTextBox.Location = new System.Drawing.Point(208, 306);
             this.inventoryTextBox.Name = "inventoryTextBox";
             this.inventoryTextBox.Size = new System.Drawing.Size(227, 23);
-            this.inventoryTextBox.TabIndex = 19;
+            this.inventoryTextBox.TabIndex = 2;
+            this.inventoryTextBox.TextChanged += new System.EventHandler(this.inventoryTextBox_TextChanged);
             // 
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(208, 252);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(227, 23);
-            this.nameTextBox.TabIndex = 20;
+            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // idTextBox
             // 

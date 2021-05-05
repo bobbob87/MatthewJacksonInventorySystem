@@ -26,9 +26,10 @@ namespace MatthewJacksonInventorySystem
         {
             return Inventory.Products[product];
         }
-        public static void updateProduct(int id, Product product)
+        public static void updateProduct(int inc, Product product)
         {
-
+            Products.Insert(CurrentProductIndex, product);
+            Products.RemoveAt(CurrentProductIndex + inc);
         }
         public static void addPart(Part part)
         {
@@ -45,10 +46,8 @@ namespace MatthewJacksonInventorySystem
         }
         public static void updatePart(int inc, Part part)
         {
-            {
                 AllParts.Insert(CurrentPartIndex, part);
                 AllParts.RemoveAt(CurrentPartIndex + inc);
-            }
         }
 
     }

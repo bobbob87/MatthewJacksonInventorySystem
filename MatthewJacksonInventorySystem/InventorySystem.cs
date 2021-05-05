@@ -22,15 +22,26 @@ namespace MatthewJacksonInventorySystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AddProduct newMDIChild = new();
-            newMDIChild.MdiParent = ParentForm;
-            newMDIChild.Show();
-            newMDIChild.BringToFront();
+                this.Hide();
+                AddProduct newMDIChild = new();
+                newMDIChild.MdiParent = ParentForm;
+                newMDIChild.Show();
+                newMDIChild.BringToFront();
+
         }
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.Products.Count == 0 || Inventory.CurrentProductIndex == ProductsDataGridView.RowCount)
+            {
+                string box_msg = "Please select a valid Product";
+
+                string box_title = "Selection Error";
+
+                MessageBox.Show(box_msg, box_title);
+                return;
+            }
+
             this.Hide();
             ModifyProduct newMDIChild = new();
             newMDIChild.MdiParent = ParentForm;
@@ -109,6 +120,7 @@ namespace MatthewJacksonInventorySystem
 
         private void partsAddButton_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             AddPart newMDIChild = new();
             newMDIChild.MdiParent = ParentForm;
@@ -118,6 +130,15 @@ namespace MatthewJacksonInventorySystem
 
         private void partsModifyButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.AllParts.Count == 0 || Inventory.CurrentPartIndex == partsDataGridView.RowCount)
+            {
+                string box_msg = "Please select a valid Part";
+
+                string box_title = "Selection Error";
+
+                MessageBox.Show(box_msg, box_title);
+                return;
+            }
             this.Hide();
             ModifyPart newMDIChild = new();
             newMDIChild.MdiParent = ParentForm;
@@ -127,7 +148,7 @@ namespace MatthewJacksonInventorySystem
 
         private void partsDeleteButton_Click(object sender, EventArgs e)
         {
-            if (Inventory.AllParts.Count == 0)
+            if (Inventory.AllParts.Count == 0 || Inventory.CurrentPartIndex == partsDataGridView.RowCount)
             {
                 string box_msg = "Please select a valid Part";
 
@@ -152,7 +173,7 @@ namespace MatthewJacksonInventorySystem
 
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
-            if (Inventory.Products.Count == 0)
+            if (Inventory.Products.Count == 0 || Inventory.CurrentProductIndex == ProductsDataGridView.RowCount)
             {
                 string box_msg = "Please select a valid Product";
 
@@ -177,14 +198,20 @@ namespace MatthewJacksonInventorySystem
 
         private void productsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Product.currentProduct = ProductsDataGridView.CurrentCell.RowIndex;
-            Inventory.CurrentProductIndex = ProductsDataGridView.CurrentCell.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                Product.currentProduct = ProductsDataGridView.CurrentCell.RowIndex;
+                Inventory.CurrentProductIndex = ProductsDataGridView.CurrentCell.RowIndex;
+            }
         }
 
         private void partsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Part.currentPart = partsDataGridView.CurrentCell.RowIndex;
-            Inventory.CurrentPartIndex = partsDataGridView.CurrentCell.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                Part.currentPart = partsDataGridView.CurrentCell.RowIndex;
+                Inventory.CurrentPartIndex = partsDataGridView.CurrentCell.RowIndex;
+            }
         }
 
         private void partsSearchTextBox_TextChanged(object sender, EventArgs e)

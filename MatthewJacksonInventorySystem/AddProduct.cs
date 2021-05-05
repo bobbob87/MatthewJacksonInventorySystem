@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Linq;
@@ -7,6 +8,8 @@ namespace MatthewJacksonInventorySystem
 {
     public partial class AddProduct : Form
     {
+
+
         private bool AllowSave()
         {
             int number;
@@ -18,9 +21,10 @@ namespace MatthewJacksonInventorySystem
         public AddProduct()
         {
             InitializeComponent();
+            int id = 1;
+            idTextBox.Text = (id + Inventory.Products.Last().ProductID).ToString();
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
-            associatedPartsDatagridView.DataSource = Product.AssociatedParts;
-            idTextBox.Text = Inventory.Products[Inventory.CurrentProductIndex].ProductID.ToString();
+            //associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -61,27 +65,133 @@ namespace MatthewJacksonInventorySystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            candidatePartsdataGridView.Rows.RemoveAt(Product.currentCandidatePart);
-            if (Product.currentCandidatePart <= Inventory.AllParts.Count)
+            // candidatePartsdataGridView.Rows.RemoveAt(Product.currentCandidatePart);
+            if (associatedPartsDatagridView.RowCount >= 0)
             {
-                Product.AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
+                Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
+                associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
             }
 
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Count > 0)
+            {
+                string message = "Are you sure you wish to remove this part?";
+                string caption = "Please Confirm Deletion";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
 
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Product.RemoveAssociatedPart(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts[Product.CurrentAssociatedPart]);
+                }
+            }
+            else
+            {
+                {
+                    string box_msg = "Please select a valid Part";
+
+                    string box_title = "Selection Error";
+
+                    MessageBox.Show(box_msg, box_title);
+                }
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            {
+                Product p = new Product(nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
+                Inventory.Products.Add(p);
+            }
 
+            this.Hide();
+            inventoryForm f = new();
+            f.Show();
         }
 
         private void candidatePartsdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0) 
+            {
+                Product.currentCandidatePart = candidatePartsdataGridView.CurrentCell.RowIndex;
+            }
+        }
 
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                nameTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                nameTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void inventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out _)))
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void priceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(priceTextBox.Text) || (!Int32.TryParse(priceTextBox.Text, out _)))
+            {
+                priceTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                priceTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void maxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)))
+            {
+                maxTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                maxTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void minTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)))
+            {
+                minTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                minTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void associatedPartsDatagridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Product.CurrentAssociatedPart = associatedPartsDatagridView.CurrentCell.RowIndex;
+            }
         }
     }
 }

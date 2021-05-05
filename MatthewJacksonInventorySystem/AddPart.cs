@@ -32,6 +32,8 @@ namespace MatthewJacksonInventorySystem
         {
             InitializeComponent();
             int id = 1;
+
+
             idTextBox.Text = (id + Inventory.AllParts.Last().PartID).ToString();
         }
 
@@ -92,7 +94,8 @@ namespace MatthewJacksonInventorySystem
 
         private void InventoryTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(InventoryTextBox.Text) || (!Int32.TryParse(InventoryTextBox.Text, out _)))
+            if (string.IsNullOrWhiteSpace(InventoryTextBox.Text) || (!Int32.TryParse(InventoryTextBox.Text, out _)) 
+                || ((Int32.Parse(InventoryTextBox.Text) > Int32.Parse(maxTextBox.Text) || Int32.Parse(InventoryTextBox.Text) <  Int32.Parse(minTextBox.Text))))
             {
                 InventoryTextBox.BackColor = System.Drawing.Color.Salmon;
             }
@@ -118,7 +121,7 @@ namespace MatthewJacksonInventorySystem
 
         private void maxTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)))
+            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)) )//|| (Int32.Parse(maxTextBox.Text) < Int32.Parse(minTextBox.Text)))
             {
                 maxTextBox.BackColor = System.Drawing.Color.Salmon;
             }
@@ -131,7 +134,7 @@ namespace MatthewJacksonInventorySystem
 
         private void minTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)))
+            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)) || (Int32.Parse(minTextBox.Text) > Int32.Parse(maxTextBox.Text)))
             {
                 minTextBox.BackColor = System.Drawing.Color.Salmon;
             }

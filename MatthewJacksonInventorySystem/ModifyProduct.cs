@@ -18,7 +18,7 @@ namespace MatthewJacksonInventorySystem
             maxTextBox.Text = Inventory.Products[Product.currentProduct].Max.ToString();
 
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
-            associatedPartsDatagridView.DataSource = Product.AssociatedParts;
+            associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace MatthewJacksonInventorySystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (Product.currentCandidatePart <= Inventory.AllParts.Count)
+            if (Product.currentCandidatePart >= 0)
             {
                 //Product.AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
                 Product.AddAssociatedpart(Inventory.AllParts[Product.currentCandidatePart]);
@@ -72,34 +72,57 @@ namespace MatthewJacksonInventorySystem
         private void deleteButton_Click(object sender, EventArgs e)
         {
 
+            if (Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Count > 0) {
+                string message = "Are you sure you wish to remove this part?";
+                string caption = "Please Confirm Deletion";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
 
-            string message = "Are you sure you wish to remove this part?";
-            string caption = "Please Confirm Deletion";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Product.RemoveAssociatedPart(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts[Product.CurrentAssociatedPart]);
+                }
+            }
+            else
             {
-                Product.RemoveAssociatedPart(Product.AssociatedParts[Product.CurrentAssociatedPart]);
+                {
+                    string box_msg = "Please select a valid Part";
+
+                    string box_title = "Selection Error";
+
+                    MessageBox.Show(box_msg, box_title);
+                }
             }
             
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            {
+                Product p = new Product(Convert.ToInt32(idTextBox.Text), nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
+                Inventory.updateProduct(1, p);
+            }
 
+            this.Hide();
+            inventoryForm f = new();
+            f.Show();
         }
 
         private void candidatePartsdataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Product.currentCandidatePart = candidatePartsdataGridView.CurrentCell.RowIndex;
-            Inventory.CurrentPartIndex = candidatePartsdataGridView.CurrentCell.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                Product.currentCandidatePart = candidatePartsdataGridView.CurrentCell.RowIndex;
+            }
         }
 
         private void associatedPartsDatagridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Product.CurrentAssociatedPart = associatedPartsDatagridView.CurrentCell.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                Product.CurrentAssociatedPart = associatedPartsDatagridView.CurrentCell.RowIndex;
+            }
         }
     }
 }
