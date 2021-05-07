@@ -79,7 +79,7 @@ namespace MatthewJacksonInventorySystem
         private void deleteButton_Click(object sender, EventArgs e)
         {
 
-            if (TempPartsList.Count > 0) {
+            if ((TempPartsList.Count > 0) && Product.CurrentAssociatedPart >= 0) {
                 string message = "Are you sure you wish to remove this part?";
                 string caption = "Please Confirm Deletion";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -89,6 +89,7 @@ namespace MatthewJacksonInventorySystem
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     TempPartsList.RemoveAt(Product.CurrentAssociatedPart);
+                    Product.CurrentAssociatedPart = 0;
                 }
             }
             else
