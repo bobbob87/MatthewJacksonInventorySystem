@@ -22,11 +22,11 @@ namespace MatthewJacksonInventorySystem
         public AddProduct()
         {
             InitializeComponent();
-            Product p = new("Default", 3, 2, 1, 3);
+            Product p = new(Inventory.Products.Count, "Default", 3, 2, 1, 3);
             Inventory.Products.Add(p);
             Inventory.CurrentProductIndex = Inventory.Products.Count -1;
             int id = 1;
-            idTextBox.Text = (id + Inventory.Products.Last().ProductID).ToString();
+            idTextBox.Text = (Inventory.Products.Last().ProductID).ToString();
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
             //associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
 

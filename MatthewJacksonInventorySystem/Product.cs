@@ -4,7 +4,7 @@ namespace MatthewJacksonInventorySystem
 {
     class Product
     {
-        public static int ProductCount = Inventory.Products.Count;
+        public static int ProductCount = Inventory.Products.Count -1;
         public static int currentProduct { get; set; }
         public static int currentCandidatePart { get; set; }
         public static int CurrentAssociatedPart { get; set; }
