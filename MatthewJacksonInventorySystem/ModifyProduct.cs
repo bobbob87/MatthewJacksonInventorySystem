@@ -8,7 +8,70 @@ namespace MatthewJacksonInventorySystem
     public partial class ModifyProduct : Form
     {
         BindingList<Part> TempPartsList = new BindingList<Part>();
-
+        private bool AllowSave()
+        {
+            int number;
+            return (!string.IsNullOrWhiteSpace(nameTextBox.Text)) && (!(string.IsNullOrWhiteSpace(priceTextBox.Text) || (!Int32.TryParse(priceTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out number))))
+               && (!(string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out number))))
+               && !(associatedPartsDatagridView.RowCount == 0);
+        }
+        private void MaxMinInvValCheck()
+        {
+            MinValCheck();
+            MaxValCheck();
+            InvValCheck();
+        }
+        private void MinValCheck()
+        {
+            int minVal = 0;
+            int maxVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)) || (minVal >= maxVal))
+            {
+                minTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                minTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
+        private void MaxValCheck()
+        {
+            MinValCheck();
+            InvValCheck();
+            int minVal = 0;
+            int maxVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)) || (maxVal <= minVal))
+            {
+                maxTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                maxTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
+        private void InvValCheck()
+        {
+            int minVal = 0;
+            int maxVal = 0;
+            int invVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            bool invRes = Int32.TryParse(inventoryTextBox.Text, out invVal);
+            if (string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out _)) || (invVal < minVal || invVal > maxVal))
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
         public ModifyProduct()
         {
             InitializeComponent();
@@ -24,6 +87,7 @@ namespace MatthewJacksonInventorySystem
 
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
             associatedPartsDatagridView.DataSource = TempPartsList;
+            MaxMinInvValCheck();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -75,6 +139,7 @@ namespace MatthewJacksonInventorySystem
             {
                 Console.WriteLine("Error");
             }
+            saveButton.Enabled = AllowSave();
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -102,7 +167,7 @@ namespace MatthewJacksonInventorySystem
                     MessageBox.Show(box_msg, box_title);
                 }
             }
-            
+            saveButton.Enabled = AllowSave();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -136,6 +201,49 @@ namespace MatthewJacksonInventorySystem
             {
                 Product.CurrentAssociatedPart = associatedPartsDatagridView.CurrentCell.RowIndex;
             }
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                nameTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                nameTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void inventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            MaxMinInvValCheck();
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void priceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(priceTextBox.Text) || (!Int32.TryParse(priceTextBox.Text, out _)))
+            {
+                priceTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                priceTextBox.BackColor = System.Drawing.Color.White;
+            }
+            saveButton.Enabled = AllowSave();
+        }
+
+        private void maxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            MaxMinInvValCheck();
+        }
+
+        private void minTextBox_TextChanged(object sender, EventArgs e)
+        {
+            MaxMinInvValCheck();
+            saveButton.Enabled = AllowSave();
         }
     }
 }

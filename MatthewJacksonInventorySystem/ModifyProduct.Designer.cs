@@ -222,6 +222,7 @@ namespace MatthewJacksonInventorySystem
             this.maxTextBox.Name = "maxTextBox";
             this.maxTextBox.Size = new System.Drawing.Size(67, 23);
             this.maxTextBox.TabIndex = 16;
+            this.maxTextBox.TextChanged += new System.EventHandler(this.maxTextBox_TextChanged);
             // 
             // minLabel
             // 
@@ -238,6 +239,7 @@ namespace MatthewJacksonInventorySystem
             this.minTextBox.Name = "minTextBox";
             this.minTextBox.Size = new System.Drawing.Size(67, 23);
             this.minTextBox.TabIndex = 0;
+            this.minTextBox.TextChanged += new System.EventHandler(this.minTextBox_TextChanged);
             // 
             // priceTextBox
             // 
@@ -245,6 +247,7 @@ namespace MatthewJacksonInventorySystem
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(227, 23);
             this.priceTextBox.TabIndex = 18;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             // 
             // inventoryTextBox
             // 
@@ -252,6 +255,7 @@ namespace MatthewJacksonInventorySystem
             this.inventoryTextBox.Name = "inventoryTextBox";
             this.inventoryTextBox.Size = new System.Drawing.Size(227, 23);
             this.inventoryTextBox.TabIndex = 19;
+            this.inventoryTextBox.TextChanged += new System.EventHandler(this.inventoryTextBox_TextChanged);
             // 
             // nameTextBox
             // 
@@ -259,6 +263,7 @@ namespace MatthewJacksonInventorySystem
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(227, 23);
             this.nameTextBox.TabIndex = 20;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // idTextBox
             // 

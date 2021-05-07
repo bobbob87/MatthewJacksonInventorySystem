@@ -19,16 +19,70 @@ namespace MatthewJacksonInventorySystem
                && (!(string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out number))))
                && !(associatedPartsDatagridView.RowCount == 0);
         }
+        private void MaxMinInvValCheck()
+        {
+            MinValCheck();
+            MaxValCheck();
+            InvValCheck();
+        }
+        private void MinValCheck()
+        {
+            int minVal = 0;
+            int maxVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)) || (minVal >= maxVal))
+            {
+                minTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                minTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
+        private void MaxValCheck()
+        {
+            MinValCheck();
+            InvValCheck();
+            int minVal = 0;
+            int maxVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)) || (maxVal <= minVal))
+            {
+                maxTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                maxTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
+        private void InvValCheck()
+        {
+            int minVal = 0;
+            int maxVal = 0;
+            int invVal = 0;
+            bool minRes = Int32.TryParse(minTextBox.Text, out minVal);
+            bool maxRes = Int32.TryParse(maxTextBox.Text, out maxVal);
+            bool invRes = Int32.TryParse(inventoryTextBox.Text, out invVal);
+            if (string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out _)) || (invVal < minVal || invVal > maxVal))
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                inventoryTextBox.BackColor = System.Drawing.Color.White;
+            }
+        }
         public AddProduct()
         {
             InitializeComponent();
             Product p = new(Inventory.Products.Count, "Default", 3, 2, 1, 3);
             Inventory.Products.Add(p);
             Inventory.CurrentProductIndex = Inventory.Products.Count -1;
-            int id = 1;
+            MaxMinInvValCheck();
             idTextBox.Text = (Inventory.Products.Last().ProductID).ToString();
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
-            //associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
 
         }
 
@@ -144,14 +198,7 @@ namespace MatthewJacksonInventorySystem
 
         private void inventoryTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(inventoryTextBox.Text) || (!Int32.TryParse(inventoryTextBox.Text, out _)))
-            {
-                inventoryTextBox.BackColor = System.Drawing.Color.Salmon;
-            }
-            else
-            {
-                inventoryTextBox.BackColor = System.Drawing.Color.White;
-            }
+            MaxMinInvValCheck();
             saveButton.Enabled = AllowSave();
         }
 
@@ -170,27 +217,13 @@ namespace MatthewJacksonInventorySystem
 
         private void maxTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(maxTextBox.Text) || (!Int32.TryParse(maxTextBox.Text, out _)))
-            {
-                maxTextBox.BackColor = System.Drawing.Color.Salmon;
-            }
-            else
-            {
-                maxTextBox.BackColor = System.Drawing.Color.White;
-            }
+            MaxMinInvValCheck();
             saveButton.Enabled = AllowSave();
         }
 
         private void minTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(minTextBox.Text) || (!Int32.TryParse(minTextBox.Text, out _)))
-            {
-                minTextBox.BackColor = System.Drawing.Color.Salmon;
-            }
-            else
-            {
-                minTextBox.BackColor = System.Drawing.Color.White;
-            }
+            MaxMinInvValCheck();
             saveButton.Enabled = AllowSave();
         }
 
