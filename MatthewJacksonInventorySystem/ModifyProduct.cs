@@ -7,6 +7,8 @@ namespace MatthewJacksonInventorySystem
 {
     public partial class ModifyProduct : Form
     {
+        BindingList<Part> TempPartsList = new BindingList<Part>(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts);
+
         public ModifyProduct()
         {
             InitializeComponent();
@@ -18,11 +20,15 @@ namespace MatthewJacksonInventorySystem
             maxTextBox.Text = Inventory.Products[Product.currentProduct].Max.ToString();
 
             candidatePartsdataGridView.DataSource = Inventory.AllParts;
-            associatedPartsDatagridView.DataSource = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
+            associatedPartsDatagridView.DataSource = TempPartsList;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            //if (TempPartsList.Count > 0)
+            //{
+            //    TempPartsList.Clear();
+            //}
             Hide();
             inventoryForm inventoryForm = new();
             inventoryForm.Show();
@@ -61,8 +67,9 @@ namespace MatthewJacksonInventorySystem
         {
             if (Product.currentCandidatePart >= 0)
             {
-                //Product.AssociatedParts.Add(Inventory.AllParts[Product.currentCandidatePart]);
-                Product.AddAssociatedpart(Inventory.AllParts[Product.currentCandidatePart]);
+                //Product.AddAssociatedpart(Inventory.AllParts[Product.currentCandidatePart]);
+                TempPartsList.Add(Inventory.AllParts[Product.currentCandidatePart]);
+                associatedPartsDatagridView.DataSource = TempPartsList;
             }
             else
             {
@@ -81,7 +88,8 @@ namespace MatthewJacksonInventorySystem
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    Product.RemoveAssociatedPart(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts[Product.CurrentAssociatedPart]);
+                    //Product.RemoveAssociatedPart(Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts[Product.CurrentAssociatedPart]);
+                    Product.RemoveAssociatedPart(TempPartsList[Product.CurrentAssociatedPart]);
                 }
             }
             else
@@ -99,11 +107,16 @@ namespace MatthewJacksonInventorySystem
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            {
+            
                 Product p = new Product(Convert.ToInt32(idTextBox.Text), nameTextBox.Text, Convert.ToInt32(priceTextBox.Text), Convert.ToInt32(inventoryTextBox.Text), Convert.ToInt32(minTextBox.Text), Convert.ToInt32(maxTextBox.Text));
-                p.AssociatedParts = Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts;
-                Inventory.updateProduct(1, p);
+                //p.AssociatedParts = new BindingList<Part>(TempPartsList);
+                foreach (Part part in TempPartsList)
+            {
+                p.AssociatedParts.Add(part);
             }
+                TempPartsList.Clear();
+                Inventory.updateProduct(1, p);
+                
 
             this.Hide();
             inventoryForm f = new();
