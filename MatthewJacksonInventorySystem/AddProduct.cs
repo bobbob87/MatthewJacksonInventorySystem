@@ -34,6 +34,7 @@ namespace MatthewJacksonInventorySystem
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            Inventory.Products.RemoveAt(Inventory.CurrentProductIndex);
             this.Hide();
             inventoryForm inventoryForm = new();
             inventoryForm.Show();

@@ -52,6 +52,7 @@ namespace MatthewJacksonInventorySystem
             this.inventoryTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.candidatePartsdataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDatagridView)).BeginInit();
@@ -112,9 +113,9 @@ namespace MatthewJacksonInventorySystem
             this.candidatePartsLabel.AutoSize = true;
             this.candidatePartsLabel.Location = new System.Drawing.Point(615, 65);
             this.candidatePartsLabel.Name = "candidatePartsLabel";
-            this.candidatePartsLabel.Size = new System.Drawing.Size(107, 15);
+            this.candidatePartsLabel.Size = new System.Drawing.Size(90, 15);
             this.candidatePartsLabel.TabIndex = 5;
-            this.candidatePartsLabel.Text = "All Candidate Parts";
+            this.candidatePartsLabel.Text = "Candidate Parts";
             // 
             // cancelButton
             // 
@@ -267,6 +268,15 @@ namespace MatthewJacksonInventorySystem
             this.idTextBox.Size = new System.Drawing.Size(227, 23);
             this.idTextBox.TabIndex = 21;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(612, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 15);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Associated Parts";
+            // 
             // ModifyProduct
             // 
             this.AcceptButton = this.searchButton;
@@ -274,6 +284,7 @@ namespace MatthewJacksonInventorySystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(1161, 674);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.inventoryTextBox);
@@ -332,5 +343,6 @@ namespace MatthewJacksonInventorySystem
         private System.Windows.Forms.TextBox inventoryTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
