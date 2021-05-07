@@ -94,6 +94,8 @@ namespace MatthewJacksonInventorySystem
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            Inventory.CurrentPartIndex = 0;
+            Part.currentPart = 0;
             Hide();
             inventoryForm inventoryForm = new();
             inventoryForm.Show();
