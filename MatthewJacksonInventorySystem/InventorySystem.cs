@@ -173,7 +173,7 @@ namespace MatthewJacksonInventorySystem
 
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
-            if (Inventory.Products.Count == 0 || Inventory.CurrentProductIndex == ProductsDataGridView.RowCount)
+            if (Inventory.Products.Count == 0 || Inventory.CurrentProductIndex >= ProductsDataGridView.RowCount || Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Count > 0)
             {
                 string box_msg = "Please select a valid Product";
 

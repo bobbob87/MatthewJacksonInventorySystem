@@ -9,7 +9,6 @@ namespace MatthewJacksonInventorySystem
         public static int currentCandidatePart { get; set; }
         public static int CurrentAssociatedPart { get; set; }
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
-        //public BindingList<Part> AssociatedParts { get; set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
