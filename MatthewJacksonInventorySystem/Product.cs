@@ -22,7 +22,7 @@ namespace MatthewJacksonInventorySystem
         public static bool RemoveAssociatedPart(Part part)
         {
             Inventory.Products[Inventory.CurrentProductIndex].AssociatedParts.Remove(part);
-            return true;// TODO: remove part code and change return to a variable
+            return true;
         }
         public static Part lookupAssociatedPart(Part part)
         {
